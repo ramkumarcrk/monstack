@@ -21,3 +21,11 @@
     group: root
     mode: 0644
   notify: restart telegraf
+
+- name: Grafana URL to access
+  ipify_facts:
+  register: public_ip
+- name: output
+  debug:
+  msg: |
+        you can access Grafana URL at http://{{ ipify_public_ip }}:3000

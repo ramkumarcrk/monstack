@@ -45,10 +45,6 @@
        After sign in , skip if you dont want to change password
                                 
 
-# Rollback:
-       Execute below step in host machine to delete the monitoring stack setup:
-       $ 
-                      
         
 # Author:
        Thanks to Opensource community and github :)
