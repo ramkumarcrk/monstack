@@ -8,7 +8,7 @@
 
 - name: Ensure firewalld started
   service:
-    name: firewalld
+    name: "{{ list_firewalld_service }}"
     state: restarted
     enabled: yes
 
@@ -18,7 +18,6 @@
 
 - name: Ensure sysstat started
   service:
-    name: sysstat
+    name: "{{ list_sysstat_service }}"
     state: restarted
     enabled: yes
-  

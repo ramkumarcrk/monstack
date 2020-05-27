@@ -22,8 +22,8 @@
            $git clone https://github.com/ramkumarcrk/monstack.git
 
 # Executing program:
-       * $cd monstack
-       * $sudo ./install.sh
+       $cd monstack
+       $sudo ./install.sh
 
 # Note:
        If the playbook  failed with an error message at task "Compose File Configuration and installation" , Please re-run the above command
@@ -33,8 +33,8 @@
        If above steps are followed carefully , there wont be any issues during stack provisioning.
        Accessing Monitoring Tools URL:
        * since VM guests ports are forwarded to host machine. So you can access all the below links via host machine browser
-                             * http://localhost:8086         -       URL for InfluxDB
-                             * http://localhost:3000         -       URL for Grafana
+                              http://localhost:8086         -       URL for InfluxDB
+                              http://localhost:3000         -       URL for Grafana
        Note: Please replace localhost with your Public IP or Appropriate IP address
 						
        Accessing Grafana dashboard.

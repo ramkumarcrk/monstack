@@ -12,9 +12,6 @@
 - include_tasks: initialize_influxdb.yml
 #Docker Compose
 - include_tasks: docker_compose.yml
-#Adding grafana dataresource
-#- include_tasks: grafana_datasource_influxdb.yml
-#Adding grafana  dashboard
-#- include_tasks: grafana_dashboard.yml
+
 #Installing telegraf
 - include_tasks: telegraf_install.yml

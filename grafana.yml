@@ -1,6 +1,5 @@
 
 ---
  - hosts: localhost
-
    roles:
      - role: ansible-role-grafana
