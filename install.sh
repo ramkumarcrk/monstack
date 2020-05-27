@@ -22,4 +22,4 @@ cp requirements.txt /tmp/
 sleep 2
 
 printf "\n Go to Ansible path for Ansible role installation \n"
-sudo /usr/bin/ansible-playbook grafana.yml
+sudo /usr/bin/ansible-playbook grafana.yml --ask-vault-pass

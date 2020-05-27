@@ -11,7 +11,8 @@
 
 # Pre-Requisite:
        Make sure your base VM/Cloud Instance has internet connectivity to pull images from Docker hub and adequate space in the local filesystem
-       Run all scrips as root user or add sudo as prefix 
+       Run all scrips as root user or add sudo as prefix
+       Make sure git installed
 
 
 # Getting Started:
