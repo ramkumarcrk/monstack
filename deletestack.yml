@@ -1,8 +1,0 @@
-
----
- - hosts: localhost
-   tasks:
-     - name: Delet the entire stack
-       docker_compose:
-         project_name: monitoring
-         state: absent

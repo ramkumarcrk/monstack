@@ -27,5 +27,5 @@
   register: public_ip
 - name: output
   debug:
-  msg: |
+   msg: |
         you can access Grafana URL at http://{{ ipify_public_ip }}:3000
