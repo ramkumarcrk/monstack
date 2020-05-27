@@ -1,0 +1,11 @@
+
+---
+ - hosts: localhost
+   tasks:
+    - name: Add Bandwidth Restrictions
+      command:  "tc qdisc add dev {{ ansible_default_ipv4.interface }} root tbf rate 1mbit burst 32kbit latency 400ms"
+      ignore_errors: true
+    - pause:
+        minutes: 1
+    - name: Delete Bandwidth Restrictions 
+      command: "tc qdisc del dev {{ ansible_default_ipv4.interface }} root" 

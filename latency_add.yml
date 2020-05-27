@@ -1,0 +1,35 @@
+
+---
+ - hosts: localhost
+   tasks:
+     - name: Create Latency for 100ms
+       command: "tc qdisc add dev {{ ansible_default_ipv4.interface }} root netem delay 100ms"
+       ignore_errors: true 
+     - pause:
+         minutes: 1
+     - name: Delete Latency for 100ms
+       command: "tc qdisc del dev {{ ansible_default_ipv4.interface }} root"
+
+     - name: Create Latency for 500ms
+       command: "tc qdisc add dev {{ ansible_default_ipv4.interface }} root netem delay 500ms"
+       ignore_errors: true 
+     - pause:
+         minutes: 1
+     - name: Delete Latency for 500ms
+       command: "tc qdisc del dev {{ ansible_default_ipv4.interface }}  root"
+
+     - name: Create Latency for 700ms
+       command: "tc qdisc add dev {{ ansible_default_ipv4.interface }} root netem delay 700ms"
+       ignore_errors: true 
+     - pause:
+         minutes: 1
+     - name: Delete Latency for 700ms
+       command: "tc qdisc del dev {{ ansible_default_ipv4.interface }} root"
+
+     - name: Create Latency for 1000ms
+       command: "tc qdisc add dev {{ ansible_default_ipv4.interface }} root netem delay 1000ms"
+       ignore_errors: true 
+     - pause:
+         minutes: 1
+     - name: Delete Latency for 1000ms
+       command: "tc qdisc del dev {{ ansible_default_ipv4.interface }} root"
