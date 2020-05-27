@@ -1,0 +1,6 @@
+
+---
+- name: Install pip modules - Update pip , Install docker ,docker_compose for remote exec
+  pip:
+    requirements: requirements.txt
+    chdir: "/tmp/requirements.txt"

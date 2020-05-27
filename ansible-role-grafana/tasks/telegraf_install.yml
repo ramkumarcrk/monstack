@@ -1,0 +1,23 @@
+---
+- name: Setup  telegraf Repo
+  yum_repository:
+    name: InfluxDB-telegraf
+    description: EPEL YUM rep
+    baseurl: https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
+    gpgcheck: 1
+    enabled: 1
+    gpgkey: https://repos.influxdata.com/influxdb.key
+- name: Install telegraf
+  yum:
+    name: telegraf
+    state: present
+    update_cache: yes
+
+- name: Copy telegraf.conf
+  template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart telegraf

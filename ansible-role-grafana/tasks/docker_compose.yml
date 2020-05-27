@@ -1,0 +1,35 @@
+---
+- name: Compose File Configuration and installation
+  docker_compose:
+    project_name: monitoring
+    definition:
+      version: '3'
+      services:
+        grafana:
+          image: ramkumarcrk/demo:gv2
+          container_name: grafana
+          restart: always
+          ports:
+            - 3000:3000
+          networks:
+            - monitoring
+          volumes:
+            - grafana-volume:/var/lib/grafana
+        influxdb:
+          image: influxdb:latest
+          container_name: influxdb
+          restart: always
+          ports:
+            - 8086:8086
+          networks:
+            - monitoring
+          volumes:
+            - influxdb-volume:/var/lib/influxdb
+      networks:
+        monitoring:
+      volumes:
+        grafana-volume:
+        influxdb-volume:
+- name: Create database telegraf
+  command: curl -XPOST 'http://localhost:8086/query' --data-urlencode 'q=CREATE DATABASE "telegraf"'
+  ignore_errors: yes

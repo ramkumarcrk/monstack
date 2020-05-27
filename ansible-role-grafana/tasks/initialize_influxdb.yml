@@ -1,0 +1,17 @@
+
+---
+- name: Initialize influxdb
+  docker_container:
+    name: influxdb
+    image: influxdb:latest
+    volumes: influxdb-volume:/var/lib/influxdb
+    env:
+      INFLUXDB_DB: telegraf
+      INFLUXDB_ADMIN_ENABLED: "true"
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: password
+      INFLUXDB_USER: telegraf
+      INFLUXDB_USER_PASSWORD: password
+      INFLUXDB_HTTP_AUTH_ENABLED: "true"
+    command: influxdb /init-influxdb.sh
+    auto_remove: yes

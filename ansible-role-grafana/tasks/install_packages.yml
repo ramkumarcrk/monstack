@@ -1,0 +1,24 @@
+
+---
+- name: Install packages for base OS setup
+  yum:
+    name: "{{  item  }}"
+    state: present
+  loop: "{{  list_of_packages  }}"
+
+- name: Ensure firewalld started
+  service:
+    name: firewalld
+    state: restarted
+    enabled: yes
+
+- name: SELinux disabled
+  selinux:
+    state: disabled
+
+- name: Ensure sysstat started
+  service:
+    name: sysstat
+    state: restarted
+    enabled: yes
+  

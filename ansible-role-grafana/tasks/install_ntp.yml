@@ -1,0 +1,14 @@
+
+---
+- name: Install and enable NTP
+  yum:
+    name: "{{  item  }}"
+    state: present
+  loop: "{{  list_of_packages_ntp  }}"
+
+- name: Enable NTP service
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  loop: "{{ list_of_packages_ntp_service }}"

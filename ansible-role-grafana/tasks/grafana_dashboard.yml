@@ -1,0 +1,19 @@
+---
+- name: Copy dashboard files  to remote place
+  copy:
+    src: "{{ item }}"
+    dest: "/tmp/dashboard/"
+  with_fileglob:
+    - dashboard/*
+
+- name: Import Grafana dashboard
+  grafana_dashboard:
+    grafana_url: http://localhost:3000
+    grafana_user: "admin"
+    grafana_password: "admin"
+    state: present
+    org_id: 1
+    message: Updated by ansible
+    overwrite: yes
+    path: '/tmp/dashboard/{{ item }}'
+  loop: "{{  grafana_dashboard  }}"

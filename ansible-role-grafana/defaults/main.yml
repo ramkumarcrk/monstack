@@ -1,0 +1,45 @@
+---
+# defaults file for ansible-role-grafana
+
+list_of_packages:
+  - iproute
+  - iperf3
+  - psmisc
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
+  - curl
+  - gcc
+  - python-devel
+  - epel-release
+  - python-pip
+  - conntrack-tools
+  - net-tools
+  - sysstat
+  - net-snmp
+  - vim
+  - firewalld
+list_of_pip_packages:
+   - { name: 'pip', version: '20.1.1'  }
+   - { name: 'docker', version: '4.2.0' }
+   - { name: 'docker-compose', version: '1.25.5'  }
+list_of_packages_ntp:
+  - ntp
+list_of_packages_ntp_service:
+  - ntpd
+grafana_dashboard:
+  - telegraf-system-dashboard_rev4.json
+  - internet-uptime-monitor_rev4.json
+docker_edition: 'ce'
+docker_package: "docker-{{ docker_edition }}"
+docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-{{ docker_edition }}.repo
+docker_yum_gpg_key: https://download.docker.com/linux/centos/gpg
+
+docker_install_compose: true
+docker_compose_version: "1.23.2"
+docker_compose_path: /usr/local/bin/docker-compose
+
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
+docker_package_state: present
