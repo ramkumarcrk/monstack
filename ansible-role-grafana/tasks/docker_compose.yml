@@ -2,6 +2,9 @@
 - name: Compose File Configuration and installation
   docker_compose:
     project_name: monitoring
+    scale:
+      grafana: 1
+      influxdb: 1
     definition:
       version: '3'
       services:
